@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace Blazor_Javascript_Test.Server
@@ -22,7 +23,7 @@ namespace Blazor_Javascript_Test.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -47,6 +48,8 @@ namespace Blazor_Javascript_Test.Server
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseMvcWithDefaultRoute();
 
             app.UseEndpoints(endpoints =>
             {

@@ -20,6 +20,36 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        window.MyJSMethods = {
+
+            startRecording: function () {
+                navigator.getUserMedia({ audio: true }, onSuccess, onError);
+            },
+
+            stopRecording: function (element) {
+                stop.click();
+            },
+        }
+
+        let onError = function (err) {
+            console.log('The following error occurred: ' + err);
+        };
+
+        let onSuccess = function (stream) {
+            let recorder;
+            let context;
+            let audio = document.querySelector('audio');
+            console.log(stream.id);
+            console.log(stream.active);
+            console.log(stream.getAudioTracks());
+            console.log(stream.getTracks());
+        };
+
+
+
+
+    </script>
 </body>
 
 </html>

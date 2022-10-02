@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Shared\Blazor_Javascript_Test.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
 </Project>

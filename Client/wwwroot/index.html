@@ -39,7 +39,8 @@
         let onSuccess = function (stream) {
             let recorder;
             let context;
-            let audio = document.querySelector('audio');
+            let audio = document.querySelector('audio');    // Connection between the audio player in the HTML and the backend code.
+            audio.srcObject = stream;                       // Connects the audio stream recieved from getUserMedia to the HTML audio player.
             console.log(stream.id);
             console.log(stream.active);
             console.log(stream.getAudioTracks());

@@ -6,7 +6,8 @@
         <canvas id="canvas" class="visualizer" height="60"></canvas>
         <div id="buttons">
             <button class="@recordButton" @onclick=Record>Record</button>
-            <button class="stop"  @onclick=Stop>Stop</button>
+            <button class="stop" @onclick=Stop>Stop</button>
+            <button class="speechrec" @onclick=SpeechRec>Start Speech Recognition</button>
         </div>
     </section>
 
@@ -39,6 +40,11 @@
         recording = false;
         notRecording = true;
         await jsRuntime.InvokeVoidAsync("MyJSMethods.stopRecording");
+    }
+
+    private async Task SpeechRec()
+    {
+        await jsRuntime.InvokeVoidAsync("MyJSMethods.startSpeechRecognition");
     }
 
 }
